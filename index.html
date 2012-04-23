@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Neo4j presentation | @logisima</title>
+    
+    <meta name="description" content="Presentation of neo4j database" />
+    <meta name="author" content="Benoît Simard" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress.css" rel="stylesheet" />
+    <link href="css/neo4j.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="img/favicon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <div class="step" data-x="0" data-y="0">
+        <h1>Welcome to the matrix ! <br/>With Neo4j</h1>
+	<center>
+	  <img src="img/neo4j.png"/>
+	</center>
+    </div>
+
+    <div class="step" data-x="0" data-y="1000">
+	<q><strong>Neo4j</strong> is a  <strong>NO-SQL Graph</strong> database, it's written in <strong>java</strong> and it's <strong>open-source* !</strong><span class="tiny"></span></q>
+	<span class="footnote">* But not only</span>
+    </div>
+
+    <div class="step" data-x="1000" data-y="1000">
+      <center>
+        <img src="img/linkedin.jpg" width="500px"/>
+      </center>
+    </div>
+    
+    <div class="step" data-x="2000" data-y="1000">
+      <h1>NOSQL</h1>
+      <center>
+        <img src="img/nosql-graph.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="3000" data-y="1000">
+      <h1>Big & Linked data</h1>
+    </div>
+
+    <div class="step" data-x="4000" data-y="1000"> 
+      <center>
+        <img src="img/graphdb-compare-rdbms.svg" />
+      </center>
+    </div>
+
+    <div class="step" data-x="5000" data-y="1000">
+      <center>
+        <img src="img/spaghetti2.jpg" />
+      </center>
+    </div>
+
+    <div class="step" data-x="6000" data-y="1000">
+      <center>
+        <img src="img/spaghetti.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="7000" data-y="1000">
+      <h1>Some limitation</h1>
+      <ul>
+        <li>2ˆ35 (~ 34 billion) nodes</li>
+        <li>2ˆ35 (~ 34 billion) relationships</li>
+        <li>2ˆ36 (~ 68 billion) properties</li>
+        <li>2ˆ15 (~ 32 000) relationship types</li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="0" data-y="2000">
+        <h1>What is a graph database ?</h1>
+	<center>
+	  <img src="img/graphDB-logo.png" />
+	</center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="2000">
+	<center>
+	  <img src="img/graphDB.png" />
+	</center>
+    </div>
+
+<!--
+    <div class="step" data-x="3000" data-y="3000">
+	<center>
+	  <img src="img/node.png" />
+	</center>
+    </div>
+-->
+<!--
+    <div class="step" data-x="4000" data-y="3000">
+	<center>
+	  <img src="img/edge.png" />
+	</center>
+    </div>
+-->
+    <div class="step" data-x="2000" data-y="2000">
+	<center>
+	  <img src="img/property.png" />
+	</center>
+    </div>
+
+    <div class="step" data-x="3000" data-y="2000">
+      <p>Find out if a person get a specific role</p>
+      <center>
+        <img src="img/example-role.png" />
+      </center>
+
+    </div>
+
+    <div class="step" data-x="4000" data-y="2000">
+      <p>Find out the possible new friends based on them liking similar things</p>
+      <center>
+        <img src="img/recommandations.svg" />
+      </center>
+<!--
+START me=node:node_auto_index(name = "Joe")
+MATCH me-[:favorite]->stuff<-[:favorite]-person
+WHERE NOT(me-[:friend]-person)
+RETURN person.name, count(stuff)
+ORDER BY count(stuff) DESC
+-->
+    </div>
+
+    <div class="step" data-x="0" data-y="3000">
+      <h1>How to query my graph ?</h1>
+      <center>
+        <img src="img/graphDB-logo.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="3000">
+      <h1>Indexes</h1>
+      <center>
+        <img src="img/indexes.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="2000" data-y="3000">
+      <h1>Traversal</h1>
+      <center>
+        <img src="img/traversal.svg" width="900px"/>
+      </center>
+    </div>
+
+    <div class="step" data-x="3000" data-y="3000">
+      <h1>Client</h1>
+      <ul>
+        <li>REST API</li>
+        <li>Java : natif client (embedded), spring-data, play!</li>
+        <li>Ruby, Python, Php, Javascript, .Net ...</li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="4000" data-y="3000">
+      <h1>REST API - Node</h1>
+      <ul>
+        <li><blockquote>http://localhost:7474/db/data/node/{id}</blockquote></li>
+        <li><blockquote>http://localhost:7474/db/data/node/{id}/properties/{key} </blockquote></li>
+        <li><blockquote>http://localhost:7474/db/data/node/{id}/relationships/{in|out} </blockquote></li>
+      </ul>
+      <br/>
+      <ul>
+        <li>
+          <blockquote>
+            curl --header "Content-Type: application/json" --data '{"foo":"bar"}' http://localhost:7474/db/data/node
+          </blockquote>
+        </li>
+        <li>
+          <blockquote>
+            curl http://localhost:7474/db/data/node/14
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="5000" data-y="3000">
+      <h1>REST API - Relationship</h1>
+      <ul>
+        <li><blockquote>http://localhost:7474/db/data/relationship/{id}</blockquote></li>
+        <li><blockquote>http://localhost:7474/db/data/relationship/{id}/properties/{key} </blockquote></li>
+        <li><blockquote>http://localhost:7474/db/data/node/{id}/relationships</blockquote></li>
+      </ul>
+      <br/>
+      <ul>
+        <li>
+          <blockquote>
+            curl --header "Content-Type: application/json" --data '{"to" : "http://localhost:7474/db/data/node/6", "type" : "LINK", "data" : {"foo" : "bar"}}' http://localhost:7474/db/data/node/0/relationships
+          </blockquote>
+        </li>
+        <li>
+          <blockquote>
+            curl http://localhost:7474/db/data/relationship/25
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="6000" data-y="3000">
+      <h1>Some DSL</h1>
+      <img src="img/cypher.jpg" />
+      <img src="img/gremlins.jpg" />
+    </div>
+
+    <div class="step" data-x="7000" data-y="3000">
+      <h1><img src="img/gremlin.png" /></h1>
+      <ul>  
+        <li>Write in Groovy</li>
+        <li>TinkerGraph, Neo4j, OrientDB, DEX, InfiniteGraph, Rexster, and Sail RDF Stores</li>
+        <li>Graphe (G) = Vertex(node) , Edge(relationship)</li>
+        <li>Everything in Gremlin is an iterator</li>
+        <li>Each operation is a pipe</li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="8000" data-y="3000">
+      <h1><img src="img/gremlin.png" /></h1>
+      <br />
+      <div class="code">
+        <p class="comment">// Display "name" of all node<p/>
+        <blockquote>g.V.name</blockquote>
+      </div>
+      <br/>
+      <div class="code">
+        <p class="comment">// Complexe query :<p/>
+        <blockquote>g.v(23).out('knows').filter{it.age > 30}.out('like').name</blockquote>
+      </div>
+    </div>
+
+    <div class="step" data-x="9000" data-y="3000">
+      <h1>Cypher</h1>
+      <ul class="center">  
+        <li>Human query language</li>
+        <li>Inspired by SQL</li>
+        <li>Only avaible for Neo4j</li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="10000" data-y="3000">
+      <h1>Cypher - Pattern</h1>
+      <ul>
+        <li>
+          <strong>START</strong>: Starting points in the graph, obtained by element IDs or via index lookups
+        </li>
+        <li>
+          <strong>MATCH</strong>: The graph pattern to match, bound to the starting points in <code class="literal">START</code>
+        </li>
+        <li>
+          <strong>WHERE</strong>: Filtering criteria
+        </li>
+        <li>
+          <strong>RETURN</strong>: What to return
+        </li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="11000" data-y="3000">
+      <h1>Cypher - sample query</h1>
+      <br/>
+      <div class="code">
+        <p class="comment">// All node related to node 3<p/>
+        <blockquote>start n=(3) match (n)--(x) return x</blockquote>
+      </div>
+      <br/>
+      <div class="code">
+        <p class="comment">// All node that are BLOCKed by node 3<p/>
+        <blockquote>start n=(3) match (n)-[r, :BLOCKS]-> (x) return x</blockquote>
+      </div>
+      <br/>
+      <div class="code">
+        <p class="comment">// All BLOCKS relationships outgoing from node 3<p/>
+        <blockquote>start n=(3) match (n)-[r, :BLOCKS]-> () return r</blockquote>
+      </div>
+      <br/>
+      <div class="code">
+        <p class="comment">// Where regex<p/>
+        <blockquote>start n=(2,1) match n.name =~ /Tob.*/ return n</blockquote>
+      </div>
+      <br/>
+    </div>
+
+    <div class="step" data-x="12000" data-y="3000">
+      <h1>Cypher - complexe query</h1>
+      <center>
+        <img src="img/cypher-collab-graph.svg" />
+      </center>
+      <blockquote class="small" >
+        <strong>START</strong><br/>
+        &nbsp;&nbsp;joe=node:node_auto_index(name = "Joe")<br/>
+        <strong>MATCH</strong></br> 
+        &nbsp;&nbsp;joe-[:knows]->friend-[:knows]->friend_of_friend,<br/>
+        &nbsp;&nbsp;joe-[r?:knows]->friend_of_friend<br/>
+        <strong>WHERE</strong> r IS NULL<br/>
+        <strong>RETURN</strong> friend_of_friend.name, COUNT(*)<br/>
+        <strong>ORDER BY COUNT</strong> (*) DESC, friend_of_friend.name<br/>
+      </blockquote>
+    </div>
+
+    <div class="step" data-x="0" data-y="4000">
+      <h1>Transaction</h1>
+      <center>
+        <img src="img/graphDB-logo.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="4000">
+      <p>All write operations must be performed in a transaction. </p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="4000">
+      <h1>Cycle</h1>
+      <ol>
+        <li>Begin a transaction</li>
+        <li>Operate on the graph performing write operations</li>
+        <li>Mark the transaction as successful or not</li>
+        <li>Finish the transaction</li>
+      </ol>
+    </div>
+
+    <div class="step" data-x="3000" data-y="4000">
+      <h1>Lock</h1>
+      <center>
+        <img src="img/lock.gif" />
+      </center>
+    </div>
+
+    <div class="step" data-x="4000" data-y="4000">
+      <h1>Lock</h1>
+      <br/>
+      <div class="code">
+        <p class="comment">// Working on a property of a node (or a relationship)<p/>
+        <blockquote>lock the node (or the relationship)</blockquote>
+      </div>
+      <br/>
+      <div class="code">
+        <p class="comment">// Create, remove a node<p/>
+        <blockquote>lock the node</blockquote>
+      </div>
+      <br/>
+      <div class="code">
+        <p class="comment">// Create, remove a relationship<p/>
+        <blockquote>lock relationship and its nodes</blockquote>
+      </div>
+    </div>
+
+    <div class="step" data-x="5000" data-y="4000">
+      <h1>In memory write operation</h1>
+      <center>
+        <img src="img/homer-brain.jpg" width="500px"/>
+      </center>
+    </div>
+    
+    <div class="step" data-x="0" data-y="5000">
+      <h1>How to extend Neo4j ?</h1>
+      <center>
+        <img src="img/graphDB-logo.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="5000">
+      <h1>Extension</h1>
+      <p>
+        Don't care of endpoint,JSON format, It's a part of  the Neo4j process !
+      </p>
+      <center>
+        <img src="img/extension.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="2000" data-y="5000">
+      <h1>Plugin</h1>
+      <p>
+        Based  on JAX-RS, You can do what ever you want, JSON result depend on you !
+      </p>
+      <center>
+        <img src="img/plugin.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="3000" data-y="5000">
+      <h1>List of extension</h1>
+      <ul class="center">
+        <li>Gremlin & Cypher</li>
+        <li>RDF / Sparql</li>
+        <li>Spatial</li>
+      </ul>
+      <p><strong>Coming soon</strong> routing with OSM data</p>
+    </div>
+
+    <div class="step" data-x="4000" data-y="5000">
+      <h1>Spatial & OSM</h1>
+      <img src="img/osm.png"/>
+    </div>
+
+    <div class="step" data-x="0" data-y="6000">
+      <h1>Backup</h1>
+      <center>
+        <img src="img/graphDB-logo.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="6000">
+      <ul>
+        <li>Save the index !</li>
+        <li>Hot backup process (EE)</li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="0" data-y="7000">
+      <h1>Cluster</h1>
+      <center>
+        <img src="img/graphDB-logo.png" />
+      </center>
+    </div>
+
+    <div class="step" data-x="1000" data-y="7000">
+      <center>
+        <img src="img/cluster.png" />
+      </center>
+    </div>
+    
+    <div class="step" data-x="2000" data-y="7000">
+      <h1>Master</h1>
+      <ul>
+        <li>Unique</li>
+        <li>Read / write</li>
+        <li>Elected by the cluster (Via Apache ZooKeeper)</li>
+      </ul>
+    </div>
+
+    <div class="step" data-x="3000" data-y="7000">
+      <h1>Slaves</h1>
+      <ul>
+        <li>Many</li>
+        <li>Read-only</li>
+        <li>redirect write query to master</li>  
+      </ul>
+    </div>
+
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>

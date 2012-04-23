@@ -1,0 +1,55 @@
+body{
+  background:url("../img/background.png") no-repeat bottom #000000;
+  background-size: 100%;
+  color: #FFFFFF;
+  font-size:0.9em;
+}
+
+.footnote {
+  font-size: 0.7em;
+  font-style: italic;
+  margin-top: 100px;
+  display:block;
+}
+
+h1{
+  font-size:1.4em;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.step *{
+  text-align:center;
+}
+.step ul,.step ul li, .step ul li * {
+  text-align:left;
+}
+
+.step ul.center,.step ul.center li, .step ul.center li * {
+  text-align:center;
+}
+
+.step ul li{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+
+blockquote{
+    font-size:0.7em;
+}
+ 
+ blockquote.small{
+  font-size:0.5em;
+  text-align:left;
+ }
+ 
+ p.comment{
+  text-align:left;
+  font-size:0.7em;
+  color:green;
+ }
+ 
+ div.code *{
+  text-align:left;
+ }
