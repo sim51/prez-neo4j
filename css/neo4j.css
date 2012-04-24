@@ -53,3 +53,9 @@ blockquote{
  div.code *{
   text-align:left;
  }
+ 
+ div#footer{
+  position:fixed;
+  bottom: 10px;
+  left: 50px;
+ }
